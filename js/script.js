@@ -1,12 +1,12 @@
 {
-    let playGame = function (argPlayerMove) {
+    function playGame(argPlayerMove) {
 
         const randomNumber = Math.floor(Math.random() * 3 + 1);
         const playerInput = argPlayerMove;
 
         clearMessages();
 
-        let getMoveName = function (argMoveId) {
+        function getMoveName(argMoveId) {
             if (argMoveId == 1) {
                 return 'kamień';
             } else if (argMoveId == 2) {
@@ -19,17 +19,21 @@
             }
         }
 
-        let computerMove = getMoveName(randomNumber);
-        let playerMove = getMoveName(playerInput);
+        const computerMove = getMoveName(randomNumber);
+        const playerMove = getMoveName(playerInput);
 
         printMessage("Komputer zagrał " + computerMove);
         printMessage("Twój ruch to: " + playerMove);
 
-        let displayResult = function (argComputerMove, argPlayerMove) {
+        function displayResult(argComputerMove, argPlayerMove) {
             console.log('moves:', argComputerMove, argPlayerMove);
-            if ((argComputerMove == 'kamień' && argPlayerMove == 'papier') || (computerMove == 'papier' && playerMove == 'nożyce') || (computerMove == 'nożyce' && playerMove == 'kamień')) {
+            if ((argComputerMove == 'kamień' && argPlayerMove == 'papier') ||
+                (computerMove == 'papier' && playerMove == 'nożyce') ||
+                (computerMove == 'nożyce' && playerMove == 'kamień')) {
                 printMessage('Ty wygrywasz!');
-            } else if ((computerMove == 'kamień' && playerMove == 'nożyce') || (computerMove == 'papier' && playerMove == 'kamień') || (computerMove == 'nożyce' && playerMove == 'papier')) {
+            } else if ((computerMove == 'kamień' && playerMove == 'nożyce') ||
+                (computerMove == 'papier' && playerMove == 'kamień') ||
+                (computerMove == 'nożyce' && playerMove == 'papier')) {
                 printMessage('Przegrałeś!');
             } else if (computerMove == playerMove) {
                 printMessage('Remis!');
